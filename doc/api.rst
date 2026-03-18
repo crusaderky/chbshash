@@ -1,6 +1,7 @@
 API Reference
 =============
 
-TODO replace with your own public objects
-
-.. autofunction:: TEMPLATE.hello
+.. autofunction:: correcthorse.random
+.. autofunction:: correcthorse.hash
+.. autofunction:: correcthorse.words
+.. autofunction:: correcthorse.clear_cache

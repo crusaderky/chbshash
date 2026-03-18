@@ -24,20 +24,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        # Note: this project relies on random.Random() to produce stable outputs across
+        # platforms and Python versions. The test suite verifies this; this is why the
+        # matrix is so thorough. Also, hhash and chbssum feature OS-specific newline
+        # handling.
         os:
           - ubuntu-latest # x86-64
           - ubuntu-24.04-arm # ARM
           - macos-15-intel # x86-64
           - macos-latest # ARM
           - windows-latest # x86-64
-        environment:
-          - smoke
-          - mindeps
-          - py311
-          - py314
+        environment: [smoke, mindeps, py314]
         include:
-          - os: ubuntu-latest
-            environment: upstream
           - os: ubuntu-latest
             environment: nogil
 
@@ -45,16 +43,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Disregard pixi.lock (upstream only)
-        if: matrix.environment == 'upstream'
-        run: rm pixi.lock
-
       - uses: prefix-dev/setup-pixi@v0
         with:
-          pixi-version: v0.65.0
+          pixi-version: v0.66.0
           environments: ${{ matrix.environment }}
-          cache: ${{ matrix.environment != 'upstream' }}
-          locked: ${{ matrix.environment != 'upstream' }}
+          cache: true
+          locked: true
 
       - name: Smoke test
         run: pixi run -e ${{ matrix.environment }} smoke-test

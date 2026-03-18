@@ -3,10 +3,12 @@
 import platform
 import sys
 
-import TEMPLATE
+import correcthorse
 
 print("Python interpreter:", sys.executable)
 print("Python version    :", sys.version)
 print("Platform          :", platform.platform())
-print("Library path      :", TEMPLATE.__file__)
-print("Library version   :", TEMPLATE.__version__)
+print("Library path      :", correcthorse.__file__)
+print("Library version   :", correcthorse.__version__)
+
+assert correcthorse.hash(b"hello world") == "wob demonstrations rhinoderma behaviorist"

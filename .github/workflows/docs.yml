@@ -19,7 +19,7 @@ jobs:
 
       - uses: prefix-dev/setup-pixi@v0
         with:
-          pixi-version: v0.65.0
+          pixi-version: v0.66.0
           cache: true
           environments: docs
 
@@ -34,5 +34,5 @@ jobs:
 
       - uses: actions/upload-artifact@v7
         with:
-          name: TEMPLATE-docs
+          name: correcthorse-docs
           path: build/html

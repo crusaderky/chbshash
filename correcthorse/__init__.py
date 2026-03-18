@@ -1,13 +1,13 @@
 import importlib.metadata
 
 # Import implementation modules
-from TEMPLATE.helloworld import hello
+from correcthorse.correcthorse import clear_cache, hash, random, words
 
 try:
-    __version__ = importlib.metadata.version("TEMPLATE")
+    __version__ = importlib.metadata.version("correcthorse")
 except importlib.metadata.PackageNotFoundError:  # pragma: nocover
     # Local copy, not installed with pip
     __version__ = "9999"
 
 
-__all__ = ("__version__", "hello")
+__all__ = ("__version__", "clear_cache", "hash", "random", "words")

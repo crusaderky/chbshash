@@ -1,10 +1,9 @@
-.. currentmodule:: TEMPLATE
+.. currentmodule:: correcthorse
 
 What's New
 ==========
 
-v0.1.0 (TODO YYYY-MM-DD)
-------------------------
+v0.1.0 (2026-04-03)
+-------------------
 
 Initial release.
-TODO add as needed

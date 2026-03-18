@@ -22,7 +22,7 @@ jobs:
 
       - uses: prefix-dev/setup-pixi@v0
         with:
-          pixi-version: v0.65.0
+          pixi-version: v0.66.0
           cache: true
           environments: dist
 
@@ -42,6 +42,11 @@ jobs:
         run: |
           cp ${{ github.workspace }}/smoke_test.py .
           python smoke_test.py
+
+      - name: CLI smoke test (chbs)
+        run: chbs
+      - name: CLI smoke test (chbssum)
+        run: echo "hello world" | chbssum
 
       - uses: actions/upload-artifact@v7
         with:
